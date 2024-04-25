@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Controllers\TypeNoteController;
+use App\Http\Controllers\NoteController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -24,8 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-
-    Route::get('/typenotes', [TypeNoteController::class, 'index'])->name('typenote.index');
+    Route::get('/notes/show/{id}', [NoteController::class, 'show'])->name('notes.show');
 });
 
 require __DIR__.'/auth.php';
