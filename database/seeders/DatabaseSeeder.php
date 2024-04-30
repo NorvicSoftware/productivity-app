@@ -14,9 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(TypeNoteSeeder::class);
-        TypeNote::factory(20)->create();
         $this->call(UserSeeder::class);
+        $this->call(TypeNoteSeeder::class);
+        $this->call(NoteSeeder::class);
+        TypeNote::factory(20)->create();
+        
 
         User::factory(10)->create();
 

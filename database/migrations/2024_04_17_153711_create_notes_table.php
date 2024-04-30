@@ -18,10 +18,12 @@ class CreateNotesTable extends Migration
             $table->unsignedBigInteger('user_id'); // ID del usuario (clave foránea)
             $table->string('title'); // Título de la nota
             $table->text('content'); // Contenido de la nota
-            $table->timestamp('created_at')->useCurrent(); // Fecha de creación
+            // $table->timestamp('created_at')->useCurrent(); // Fecha de creación
 
             // Definir la relación con la tabla de usuarios
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->timestamps();
         });
     }
 
